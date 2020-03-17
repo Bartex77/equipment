@@ -10,6 +10,8 @@ class UserModel extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +38,19 @@ class UserModel extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function chests()
+    {
+        return $this->belongsToMany(ChestModel::class);
+    }
+
+    public function runes()
+    {
+        return $this->belongsToMany(RuneModel::class);
+    }
+
+    public function prices()
+    {
+        return $this->belongsToMany(PriceModel::class);
+    }
 }

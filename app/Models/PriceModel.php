@@ -12,5 +12,18 @@ class PriceModel extends Model
         '2' => 'Rejected',
     ];
 
-    //
+    protected $table = 'prices';
+
+    protected $fillable = [
+        'name',
+        'pictureFileName',
+        'code',
+        'price',
+        'state',
+    ];
+
+    public function users()
+    {
+        return $this->belongsToMany(UserModel::class);
+    }
 }

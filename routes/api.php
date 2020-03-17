@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('chests', 'ChestController@list');
+Route::get('chest/{id}', 'ChestController@findById');
+Route::post('chest', 'ChestController@save');
+
+Route::get('runes', 'RuneController@list');
+Route::get('rune/{id}', 'RuneController@findById');
+
+Route::get('prices', 'PriceController@list');
+Route::get('price/{id}', 'PriceController@findById');
+
+Route::post('user_chest_attach', 'UserItemController@attachUserChest');
